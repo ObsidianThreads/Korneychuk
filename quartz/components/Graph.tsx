@@ -59,15 +59,62 @@ const defaultOptions: GraphOptions = {
   },
 }
 
+// Предположим, что внутри script или в другом файле реализована функция рендеринга узлов.
+// Здесь добавьте кастомный компонент для узлов с data-note-type, если вы рендерите ноды самостоятельно.
+//
+// Пример компонента узла:
+
+interface Node {
+  id: string
+  label: string
+  type?: string // поле type из frontmatter
+  // ... другие возможные свойства
+}
+
+interface GraphNodesProps {
+  nodes: Node[]
+}
+
+const GraphNodes = ({ nodes }: GraphNodesProps) => {
+  return (
+    <>
+      {nodes.map(node => (
+        <div
+          key={node.id}
+          className="graph-node"
+          data-note-type={node.type ?? "default"}
+          title={node.label}
+          // Добавьте другие нужные атрибуты, стили и обработчики
+        >
+          {node.label}
+        </div>
+      ))}
+    </>
+  )
+}
+
 export default ((opts?: Partial<GraphOptions>) => {
   const Graph: QuartzComponent = ({ displayClass, cfg }: QuartzComponentProps) => {
     const localGraph = { ...defaultOptions.localGraph, ...opts?.localGraph }
     const globalGraph = { ...defaultOptions.globalGraph, ...opts?.globalGraph }
+
+    // Здесь на самом деле должен быть доступ к nodes с типами заметок,
+    // например, const nodes = ... (получить из props / контекста / парсинга)
+    // Пока заглушка:
+    const nodes: Node[] = [
+      { id: "1", label: "Персонаж1", type: "персонаж" },
+      { id: "2", label: "Произведение1", type: "произведение" },
+      { id: "3", label: "Место1", type: "место" },
+    ]
+
     return (
       <div class={classNames(displayClass, "graph")}>
         <h3>{i18n(cfg.locale).components.graph.title}</h3>
         <div class="graph-outer">
-          <div class="graph-container" data-cfg={JSON.stringify(localGraph)}></div>
+          <div class="graph-container" data-cfg={JSON.stringify(localGraph)}>
+            {/* Вот место, где отрисовываем узлы с data-note-type */}
+            <GraphNodes nodes={nodes} />
+          </div>
           <button class="global-graph-icon" aria-label="Global Graph">
             <svg
               version="1.1"
@@ -79,8 +126,7 @@ export default ((opts?: Partial<GraphOptions>) => {
               fill="currentColor"
               xmlSpace="preserve"
             >
-              <path
-                d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+              <path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
                 s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
                 c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
                 C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
@@ -90,8 +136,7 @@ export default ((opts?: Partial<GraphOptions>) => {
                 C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
                 S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
                 s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
-                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"
-              />
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"/>
             </svg>
           </button>
         </div>

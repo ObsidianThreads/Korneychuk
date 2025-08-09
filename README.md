@@ -1,18 +1,26 @@
-# Quartz v4
+# Korney Chukovsky Collection
 
-> “[One] who works with the door open gets all kinds of interruptions, but [they] also occasionally gets clues as to what the world is and what might be important.” — Richard Hamming
+A digital archive of works and characters by the renowned Russian children's writer Korney Chukovsky, including his famous poems and stories that have delighted generations.
 
-Quartz is a set of tools that helps you publish your [digital garden](https://jzhao.xyz/posts/networked-thought) and notes as a website for free.
-Quartz v4 features a from-the-ground rewrite focusing on end-user extensibility and ease-of-use.
+<img width="993" height="847" alt="image" src="https://github.com/user-attachments/assets/1651448f-28d0-4dbb-bba4-42e9d423218f" />
 
-🔗 Read the documentation and get started: https://quartz.jzhao.xyz/
+## Obsidian Knowledge Base
 
-[Join the Discord Community](https://discord.gg/cRFFHYye7t)
+This collection is specifically designed as an Obsidian vault to explore and visualize the rich interconnected universe of Korney Chukovsky's literary works. The structure enables powerful graph connections that reveal relationships between characters, stories, and themes.
 
-## Sponsors
+## Features
 
-<p align="center">
-  <a href="https://github.com/sponsors/jackyzha0">
-    <img src="https://cdn.jsdelivr.net/gh/jackyzha0/jackyzha0/sponsorkit/sponsors.svg" />
-  </a>
-</p>
+- **Graph View**: Visualize the connections between characters and works in Chukovsky's universe
+- **Bi-directional Links**: Explore relationships between characters, stories, and locations
+- **Tagging System**: Categorize content by work, character type, themes, and more
+- **Canvas Integration**: Use Obsidian Canvas to create visual mind maps of Chukovsky's literary world
+
+## Structure
+
+- **Произведения (Works)**: Complete collection of Chukovsky's literary works
+- **Персонажи (Characters)**: Detailed entries for each character with links to their appearances
+- **Места (Locations)**: Geographical settings from Chukovsky's stories
+
+## Usage
+
+This repository serves as both a digital archive and a dynamic knowledge base. The Obsidian format allows for deep exploration of the interconnected nature of Chukovsky's creative universe, making it accessible for readers, researchers, and educators interested in Russian children's literature.

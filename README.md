@@ -1,5 +1,7 @@
 # Korney Chukovsky Collection
 
+For site https://obsidianthreads.github.io/Korneychuk/
+
 A digital archive of works and characters by the renowned Russian children's writer Korney Chukovsky, including his famous poems and stories that have delighted generations.
 
 <img width="993" height="847" alt="image" src="https://github.com/user-attachments/assets/1651448f-28d0-4dbb-bba4-42e9d423218f" />

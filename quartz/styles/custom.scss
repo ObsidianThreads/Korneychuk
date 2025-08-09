@@ -1,3 +1,15 @@
 @use "./base.scss";
 
-// put your custom CSS here!
+/* Кастомизация: цвет узлов в графе для трёх типов заметок */
+.graph-node[data-note-type="персонаж"] {
+  background: #5a7bbf;      /* насыщенный синий */
+  border-color: #3a4d7a;    /* более тёмная окантовка */
+}
+.graph-node[data-note-type="произведение"] {
+  background: #e9b872;      /* мягкий оранжево-бежевый */
+  border-color: #b78b3a;    /* коричневая окантовка */
+}
+.graph-node[data-note-type="место"] {
+  background: #74b29e;      /* зелёно-мятный */
+  border-color: #497d68;    /* тёмно-зелёная окантовка */
+}
